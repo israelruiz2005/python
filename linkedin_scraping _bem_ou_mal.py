@@ -37,14 +37,11 @@ usuario_input.send_keys('seu_email_de_login_no_linkedin')
 senha_input = driver.find_element_by_name('session_password')
 senha_input.send_keys('sua_senha')
 
-# clicar para logar
-# driver.find_element_by_css_selector("button.btn__primary--large").click()
-# driver.find_element_by_xpath('//button[text()="Sign in"]').click()
-
+# Confirmar os dados e entrar
 senha_input.send_keys(Keys.RETURN)
 sleep(3)
 
-# GOOGLE
+# Entrar no GOOGLE
 driver.get('https://google.com')
 sleep(1)
 
@@ -58,6 +55,8 @@ busca_input.send_keys(Keys.RETURN)
 sleep(2)
 
 # extrair lista de perfis
+#ATENÇÃO AQUI Ficar atento, caso não funcione verificar o site e identificar qual
+# é a nova class
 lista_perfil = driver.find_elements_by_xpath('//div[@class="yuRUbf"]/a')
 lista_perfil = [perfil.get_attribute('href') for perfil in lista_perfil]
 
@@ -65,7 +64,7 @@ lista_perfil = [perfil.get_attribute('href') for perfil in lista_perfil]
 for perfil in lista_perfil:
     driver.get(perfil)
     sleep(10)
-
+    # Extraindo os dados da pagina do linkedin
     response = Selector(text=driver.page_source)
     nome = response.xpath('//title/text()').extract_first().split(" | ")[1]
     headline = response.xpath('//h2/text()')[2].extract().strip()
