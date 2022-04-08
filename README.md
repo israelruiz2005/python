@@ -7,3 +7,9 @@ pode ser que em outro dia isto não ocorra, portanto estude o site e verifique o
 
 ## Outros projetos
 Também pequenos scripts executados no google.colab
+
+- 01_Carregando_uma_Planilha.ipynb
+- ETL_projeto_DIO.ipynb
+- Equacao_2_grau_com_grafico.ipynb
+- Usando_pySpark_contar_palavras.ipynb
+- equaçaodesegundograu.ipynb
